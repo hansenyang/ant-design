@@ -20,6 +20,8 @@ export interface PickerProps {
   locale?: any;
   size?: 'large' | 'small' | 'default';
   getCalendarContainer?: (trigger: any) => React.ReactNode;
+  open?: boolean;
+  onOpenChange?: (status: boolean) => void;
 }
 
 export interface SinglePickerProps {
@@ -31,10 +33,8 @@ export interface SinglePickerProps {
 
 export interface DatePickerProps extends PickerProps, SinglePickerProps {
   showTime?: TimePickerProps | boolean;
-  open?: boolean;
   toggleOpen?: (e: {open: boolean}) => void;
   disabledDate?: (current: moment.Moment) => boolean;
-  onOpenChange?: (status: boolean) => void;
 }
 const DatePicker = wrapPicker(createPicker(RcCalendar)) as React.ClassicComponentClass<DatePickerProps>;
 
